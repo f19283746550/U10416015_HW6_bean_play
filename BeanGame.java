@@ -31,7 +31,7 @@ public class BeanGame extends Application  {
 		Line x11=new Line(300.0f,400.0f,300.0f,500.0f);
 		Line x12=new Line(350.0f,400.0f,350.0f,500.0f);
 		Line x13=new Line(400.0f,400.0f,400.0f,500.0f);
-		Line x14=new Line(0.0f,500.0f,400.0f,500.0f);
+		Line x14=new Line(0.0f,500.0f,400.0f,500.0f);//畫線
 		
 		
 		Circle y1=new Circle(50.0f,400.0f,18.0f);
@@ -89,26 +89,26 @@ public class BeanGame extends Application  {
 		Circle y27=new Circle(225.0f,150.0f,18.0f);
 		y27.setStyle("-fx-fill:DODGERBLUE;");
 		Circle y28=new Circle(200.0f,100.0f,18.0f);
-		y28.setStyle("-fx-fill:DODGERBLUE;");
+		y28.setStyle("-fx-fill:DODGERBLUE;");//畫圈
 		
 		
 		a.getChildren().addAll(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,
-y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y23,y24,y25,y26,y27,y28);
+y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y23,y24,y25,y26,y27,y28);//丟到Pane裡
 		
 		
 		Rectangle rect = new Rectangle(150, 0, 100, 50);
 		rect.setFill(Color.WHITE);
-		rect.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {
+		rect.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {//將動作可執行的區域設在剛剛設的Rectangle
 	        @Override
 	        public void handle(MouseEvent me) {
 	        	nC.setCenterX(me.getSceneX());
 	    		nC.setCenterY(me.getSceneY());
-	    		nC.setRadius(5.0f);
+	    		nC.setRadius(5.0f);//設位置&大小
 	            nC.setFill(Color.RED);
 	            a.getChildren().add(nC);
 	            animation=new Timeline(new KeyFrame(Duration.millis(50),e->moveBall()));
 	            animation.setCycleCount(Timeline.INDEFINITE);
-	            animation.play();
+	            animation.play();//動作
 	        }
 	    });
 		a.getChildren().add(rect);
@@ -119,7 +119,7 @@ y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
-	protected void moveBall(){
+	protected void moveBall(){//輸入動作要做啥的地方
 		if(Math.sqrt(Math.pow((nC.getCenterX()-200),2)+Math.pow((nC.getCenterY()-100),2))<23) {
 			if(nC.getCenterX()>200) {
 				nC.setCenterX(nC.getCenterX()+23);
