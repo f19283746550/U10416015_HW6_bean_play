@@ -17,7 +17,6 @@ public class BeanGame extends Application  {
 	@Override
 	public void start(Stage primaryStage) {
 		BorderPane a=new BorderPane();
-		
 		Line x1=new Line(150.0f,0.0f,150.0f,50.0f);
 		Line x2=new Line(250.0f,0.0f,250.0f,50.0f);
 		Line x3=new Line(150.0f,50.0f,0.0f,400.0f);
@@ -32,8 +31,6 @@ public class BeanGame extends Application  {
 		Line x12=new Line(350.0f,400.0f,350.0f,500.0f);
 		Line x13=new Line(400.0f,400.0f,400.0f,500.0f);
 		Line x14=new Line(0.0f,500.0f,400.0f,500.0f);//畫線
-		
-		
 		Circle y1=new Circle(50.0f,400.0f,18.0f);
 		y1.setStyle("-fx-fill:DODGERBLUE;");
 		Circle y2=new Circle(100.0f,400.0f,18.0f);
@@ -90,12 +87,8 @@ public class BeanGame extends Application  {
 		y27.setStyle("-fx-fill:DODGERBLUE;");
 		Circle y28=new Circle(200.0f,100.0f,18.0f);
 		y28.setStyle("-fx-fill:DODGERBLUE;");//畫圈
-		
-		
 		a.getChildren().addAll(x1,x2,x3,x4,x5,x6,x7,x8,x9,x10,x11,x12,x13,x14,
 y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y23,y24,y25,y26,y27,y28);//丟到Pane裡
-		
-		
 		Rectangle rect = new Rectangle(150, 0, 100, 50);
 		rect.setFill(Color.WHITE);
 		rect.addEventHandler(MouseEvent.MOUSE_CLICKED, new EventHandler<MouseEvent>() {//將動作可執行的區域設在剛剛設的Rectangle
@@ -112,239 +105,23 @@ y1,y2,y3,y4,y5,y6,y7,y8,y9,y10,y11,y12,y13,y14,y15,y16,y17,y18,y19,y20,y21,y22,y
 	        }
 	    });
 		a.getChildren().add(rect);
-        
-        
-        
 		Scene scene = new Scene(a, 400, 500);
 		primaryStage.setScene(scene);
 		primaryStage.show();
 	}
 	protected void moveBall(){//輸入動作要做啥的地方
-		if(Math.sqrt(Math.pow((nC.getCenterX()-200),2)+Math.pow((nC.getCenterY()-100),2))<23) {
-			if(nC.getCenterX()>200) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-225),2)+Math.pow((nC.getCenterY()-150),2))<23) {
-			if(nC.getCenterX()>225) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
+		for(int y=100;y<=400;y+=50) {
+			for(int x=200-((y/50)-2)*25;x<=200+((y/50)-2)*25;x+=50) {
+				if(Math.sqrt(Math.pow((nC.getCenterX()-x),2)+Math.pow((nC.getCenterY()-y),2))<23) {
+					if(nC.getCenterX()>x) {
+						nC.setCenterX(nC.getCenterX()+23);
+					}
+					else {
+						nC.setCenterX(nC.getCenterX()-23);
+					}
+				}
 			}
 		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-175),2)+Math.pow((nC.getCenterY()-150),2))<23) {
-			if(nC.getCenterX()>175) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-150),2)+Math.pow((nC.getCenterY()-200),2))<23) {
-			if(nC.getCenterX()>150) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-200),2)+Math.pow((nC.getCenterY()-200),2))<23) {
-			if(nC.getCenterX()>200) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-250),2)+Math.pow((nC.getCenterY()-200),2))<23) {
-			if(nC.getCenterX()>250) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-125),2)+Math.pow((nC.getCenterY()-250),2))<23) {
-			if(nC.getCenterX()>125) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-175),2)+Math.pow((nC.getCenterY()-250),2))<23) {
-			if(nC.getCenterX()>175) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-225),2)+Math.pow((nC.getCenterY()-250),2))<23) {
-			if(nC.getCenterX()>225) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-275),2)+Math.pow((nC.getCenterY()-250),2))<23) {
-			if(nC.getCenterX()>275) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-100),2)+Math.pow((nC.getCenterY()-300),2))<23) {
-			if(nC.getCenterX()>100) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-150),2)+Math.pow((nC.getCenterY()-300),2))<23) {
-			if(nC.getCenterX()>150) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-200),2)+Math.pow((nC.getCenterY()-300),2))<23) {
-			if(nC.getCenterX()>200) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-250),2)+Math.pow((nC.getCenterY()-300),2))<23) {
-			if(nC.getCenterX()>250) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-300),2)+Math.pow((nC.getCenterY()-300),2))<23) {
-			if(nC.getCenterX()>300) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-75),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>75) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-125),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>125) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-175),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>175) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-225),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>225) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-275),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>275) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-325),2)+Math.pow((nC.getCenterY()-350),2))<23) {
-			if(nC.getCenterX()>325) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-50),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>50) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-100),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>100) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-150),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>150) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-200),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>200) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-250),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>250) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-300),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>300) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		if(Math.sqrt(Math.pow((nC.getCenterX()-350),2)+Math.pow((nC.getCenterY()-400),2))<23) {
-			if(nC.getCenterX()>350) {
-				nC.setCenterX(nC.getCenterX()+23);
-			}
-			else {
-				nC.setCenterX(nC.getCenterX()-23);
-			}
-		}
-		
 		if(nC.getCenterY()+nC.getRadius()<500) {
 			nC.setCenterY(nC.getCenterY()+1);
 		}
